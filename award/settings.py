@@ -49,6 +49,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'award.wsgi.application'
+LOGIN_REDIRECT_URL = '/accounts/register'
 
 DATABASES = {
     'default': {
