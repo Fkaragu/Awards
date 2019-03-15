@@ -11,14 +11,22 @@
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li><a href="/theblog">Post a Blog</a></li>
+        <li><a href="/theprojects">Upload a project</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         {% if current_user.is_authenticated %}
         <li style="color:white;padding:15px;">{{current_user.username}}</li>
         <li><a href="{% url 'logout' %}">Sign out</a></li>
         {% else %}
+        <li>
+          <div class ="mvsearch">
+            <form class="form-inline my-2 my-lg-0" role="search" action="{% url 'search' %}">
+              <input class="form-control my-2 my-sm-0 search-input" name="search" type="search" placeholder="Search Projects" aria-label="Search">
+            </form>
+          </div>
+        </li>
         <li><a href="{% url 'login' %}">Sign in</a></li>
+
         {%endif%}
       </ul>
     </div>
