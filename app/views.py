@@ -8,5 +8,8 @@ def search(request):
     message = 'Enter term to search'
     return render(request, 'search.html', {'message':message})
 
-def profile(request, username):
+def profile(request):
     return render(request, 'profile/profile.html')
+
+def proj(request):
+    return render(request, 'project_upload.html')
