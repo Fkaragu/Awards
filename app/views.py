@@ -17,7 +17,7 @@ def proj(request):
 
 def register(request):
     if request.user.is_authenticated():
-        return redirect('home')
+        return redirect('welcome')
     else:
         if request.method == 'POST':
             form = SignupForm(request.POST)

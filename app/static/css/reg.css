@@ -1,0 +1,11 @@
+.phone_img {
+  background-image: url('https://ak8.picdn.net/shutterstock/videos/2501468/thumb/1.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 0 0;
+  background-size: 454px 618px;
+  flex-basis: 454px;
+  height: 500px;
+  margin-left: -35px;
+  text-align: center;
+}
