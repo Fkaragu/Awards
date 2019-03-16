@@ -6,10 +6,6 @@ from .models import Project
 def welcome (request):
     return render(request, 'master/index.html')
 
-def search(request):
-    message = 'Enter term to search'
-    return render(request, 'search.html', {'message':message})
-
 def profile(request):
     return render(request, 'profile/profile.html')
 
@@ -28,7 +24,17 @@ def register(request):
                 user.is_active = True
                 user.save()
                 return render(request, 'Login/success.html')
-
         else:
             form = SignupForm()
             return render(request, 'Login/signup.html',{'form':form})
+
+def search(request):
+    if 'search' in request.GET and request.GET['search']:
+        search_term = request.GET.get('search')
+        proj = Project.search_project(search_term)
+        message = f'{search_term}'
+
+        return render(request, 'search.html',{'message':message, 'proj':proj})
+    else:
+        message = 'Enter term to search'
+        return render(request, 'search.html', {'message':message})
