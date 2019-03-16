@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import SignupForm
+from .models import Project
 
 def welcome (request):
     return render(request, 'master/index.html')
@@ -12,8 +13,9 @@ def search(request):
 def profile(request):
     return render(request, 'profile/profile.html')
 
-def proj(request):
-    return render(request, 'project_upload.html')
+def projct(request):
+    proj = Project.objects.all()
+    return render(request, 'project_upload.html',{'proj':proj})
 
 def register(request):
     if request.user.is_authenticated():

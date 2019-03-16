@@ -1,8 +1,9 @@
 import os
+from decouple import config, Csv
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = '&b#-*%9p0tn082jax+*u2!a&rjrprwg+&pnmz8rg7u76r$emt$'
+SECRET_KEY = 'thaoneandonly'
 
 DEBUG = True
 
@@ -10,6 +11,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'app',
+    'tinymce',
     'bootstrap3',
     'bootstrap4',
     'django.contrib.admin',
@@ -60,6 +62,11 @@ DATABASES = {
     }
 }
 
+UPLOADCARE = {
+    'pub_key': config('pub_key'),
+    'secret': config('secret'),
+}
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -82,3 +89,9 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
+STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
