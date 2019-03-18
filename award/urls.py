@@ -7,6 +7,6 @@ urlpatterns = [
     url(r'', include('app.urls')),
     url(r'^admin/', admin.site.urls),
     url('^accounts/', include('registration.backends.simple.urls')),
-    url(r'^logout/$',views.logout, {"next_page": '/'})
+    url(r'^logout/$',views.logout, {"next_page": '/accounts/login'})
 
 ]

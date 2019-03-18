@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import SignupForm
-from .models import Project
+from .models import *
+
 
 def welcome (request):
     return render(request, 'master/index.html')
@@ -15,7 +16,7 @@ def projct(request):
 
 def register(request):
     if request.user.is_authenticated():
-        return redirect('welcome')
+        return render(request,'master/index.html')
     else:
         if request.method == 'POST':
             form = SignupForm(request.POST)
@@ -23,7 +24,7 @@ def register(request):
                 user = form.save(commit=False)
                 user.is_active = True
                 user.save()
-                return render(request, 'Login/success.html')
+                return redirect(request, 'Login/success.html')
         else:
             form = SignupForm()
             return render(request, 'Login/signup.html',{'form':form})
