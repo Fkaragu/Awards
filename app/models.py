@@ -10,7 +10,19 @@ class Project(models.Model):
     proj_description = models.CharField(max_length = 2500)
     post_date = models.DateTimeField(auto_now=True)
 
+    def __str_(self):
+        return self.proj_title
+
     @classmethod
     def search_project(cls, name):
         pro = Project.objects.filter(proj_title__icontains = name)
         return pro
+
+class Profile(models.Model):
+    profile_pic = models.ImageField(upload_to='articles/', blank=True)
+    bio = models.TextField(max_length=500, blank=True)
+    projects = models.ForeignKey(Project)
+    contact = models.TextField(max_length=500, blank=True)
+
+    def __str_(self):
+        return self.contact

@@ -7,6 +7,7 @@ urlpatterns = [
     url(r'^$',views.welcome),
     url(r'^search/',views.search, name='search'),
     url(r'^theprojects/',views.projct),
+    url(r'^profile/',views.profile),
     url(r'^registrations/',views.register),
     url(r'^user/(?P<username>\w+)', views.profile, name='profile')
 ]

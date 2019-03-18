@@ -28,7 +28,7 @@
         </li>
 
         {% if user.is_authenticated %}
-        <li><a href="">{{user.username}}</a></li>
+        <li><a href="/profile">{{user.username}}</a></li>
         <li><a href="/logout">Sign out</a></li>
         {% else %}
         <li><a href="/accounts/login">Sign in</a></li>
