@@ -1,14 +1,27 @@
 {% extends 'master/base.html' %}
 
 {% block content %}
+{% for projj in proj %}
+
 <div class="row">
-  {% for projj in proj %}
   <div class="col-md-4">
-    <h4>
-      <center>{{projj.proj_name}}</center>
-    </h4>
-        <img src="{{projj.photo.url}}" width="300" height="300">
+    <br>
+    <div class="img_sp">
+      <img src="{{projj.photo.url}}" width="320" height="400">
+    </div>
   </div>
-  {% endfor %}
+
+  <div class="col-md-8">
+    <div class="cont_sp">
+      <h4>{{projj.proj_title}}</h4>
+      <p>{{projj.proj_description}}</p>
+      <br>
+      <center><a href="{{projj.proj_link}}" target="_blank">View the application</a></center>
+      <h4>Rate the App</h4>
+    </div>
+  </div>
+
 </div>
+<hr>
+{% endfor %}
 {% endblock %}
