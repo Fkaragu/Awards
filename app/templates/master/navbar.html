@@ -12,20 +12,24 @@
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         {% if user.is_authenticated %}
+        <li><a href="/admin">Admin</a></li>
         <li><a href="/theprojects">View Uploaded Projects</a></li>
         {% else %}
         <li></li>
         {%endif%}
       </ul>
       <ul class="nav navbar-nav navbar-right">
+        {% if user.is_authenticated %}
         <li class="mvsearch">
           <div>
             <form class="form-inline my-2 my-lg-0" role="search" action="{% url 'search' %}">
               <input class="form-control my-2 my-sm-0 search-input" name="search" type="search" placeholder="Search Project" aria-label="Search">
             </form>
           </div>
-
         </li>
+        {% else %}
+        <li></li>
+        {%endif%}
 
         {% if user.is_authenticated %}
         <li><a href="/profile">{{user.username}}</a></li>

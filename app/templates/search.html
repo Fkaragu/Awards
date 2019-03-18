@@ -13,7 +13,10 @@
     {% if proj %}
         {% for projj in proj %}
             <div class="col-md-4 home-images search-results">
-                <img src="{{projj.photo.url}}" alt="image" width ="300" height ="300">
+                <img src="{{projj.photo.url}}" alt="image" width="320" height="350">
+            </div>
+            <div class="col-md-6">
+            <p>{{projj.proj_description}}</p>
             </div>
         {% endfor %}
     {% else %}

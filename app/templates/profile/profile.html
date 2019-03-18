@@ -1,7 +1,19 @@
 {% extends 'master/base.html'%}
-
 {% block content %}
-<p>{{user.username}}</p>
-<p>{{user.email}}</p>
 
+<div class="row">
+  <div class="col-md-4">
+    {% for pic in prof %}
+    <img src="{{pic.profile_pic.url}}" alt="image" width="300" height="300">
+    {% endfor %}
+  </div>
+  <div class="col-md-4">
+    {% for pic in prof %}
+    <p><strong>Name: </strong>{{user.username}}</p>
+    <p><strong>Email: </strong>{{user.email}}</p>
+    <p><strong>Bio: </strong>{{pic.bio}}</p>
+    <p><strong>Contact: </strong>{{pic.contact}}</p>
+    {% endfor %}
+  </div>
+</div>
 {% endblock %}

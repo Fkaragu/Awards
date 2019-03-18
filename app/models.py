@@ -19,6 +19,7 @@ class Project(models.Model):
         return pro
 
 class Profile(models.Model):
+    user = models.OneToOneField(User)
     profile_pic = models.ImageField(upload_to='articles/', blank=True)
     bio = models.TextField(max_length=500, blank=True)
     projects = models.ForeignKey(Project)

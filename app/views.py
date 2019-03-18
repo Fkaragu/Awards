@@ -8,7 +8,8 @@ def welcome (request):
     return render(request, 'master/index.html')
 
 def profile(request):
-    return render(request, 'profile/profile.html')
+    prof = Profile.objects.filter(user=request.user)
+    return render(request, 'profile/profile.html',{'prof':prof})
 
 def projct(request):
     proj = Project.objects.all()
