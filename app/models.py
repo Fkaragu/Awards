@@ -13,6 +13,15 @@ class Project(models.Model):
     def __str_(self):
         return self.proj_title
 
+    def save_project(self):
+        self.save()
+
+    def update_project(self):
+        self.update()
+
+    def delete_project(self):
+        self.delete()
+
     @classmethod
     def search_project(cls, name):
         pro = Project.objects.filter(proj_title__icontains = name)
@@ -27,3 +36,12 @@ class Profile(models.Model):
 
     def __str_(self):
         return self.contact
+
+    def save_profile(self):
+        self.save()
+
+    def update_profile(self):
+        self.update()
+
+    def delete_profile(self):
+        self.delete()
