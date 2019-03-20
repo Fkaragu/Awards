@@ -4,7 +4,7 @@ from tinymce.models import HTMLField
 from pyuploadcare.dj.models import ImageField
 
 class Project(models.Model):
-    user = models.OneToOneField(User)
+    user = models.ForeignKey(User)
     photo = models.ImageField(upload_to='articles/', blank=True)
     proj_title = models.CharField(max_length = 25)
     proj_link = models.CharField(max_length = 50)
@@ -14,7 +14,7 @@ class Project(models.Model):
     content = models.PositiveIntegerField(choices=list(zip(range(1, 11), range(1, 11))), default=1)
     remarks = models.CharField(max_length=50,null=True)
     post_date = models.DateTimeField(auto_now=True)
-    
+
     def __str_(self):
         return self.proj_title
 

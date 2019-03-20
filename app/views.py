@@ -1,5 +1,8 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .serializer import *
 from .forms import *
 from .models import *
 
@@ -111,3 +114,15 @@ def project(request, project_id):
    except DoesNotExist:
        raise Http404()
    return render(request,"project.html", {'form': form, 'project': project, 'rating': rating})
+
+class ProjectList(APIView):
+  def get(self, request, format=None):
+      all_proj = Project.objects.all()
+      serializers = ProjectSerializer(all_proj, many=True)
+      return Response(serializers.data)
+
+class ProfileList(APIView):
+  def get(self, request, format=None):
+      all_profile = Project.objects.all()
+      serializers = ProfileSerializer(all_profile, many=True)
+      return Response(serializers.data)

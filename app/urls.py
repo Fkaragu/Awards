@@ -12,6 +12,8 @@ urlpatterns = [
     url(r'^editprofile/',views.editprofile, name='editprofile'),
     url(r'^rate/(\d+)',views.vote_project,name = 'rate'),
     url(r'^registrations/',views.register),
+    url(r'^api/profile/$', views.ProfileList.as_view()),
+    url(r'^api/project/$', views.ProjectList.as_view()),
     url(r'^user/(?P<username>\w+)', views.profile, name='profile')
 ]
 if settings.DEBUG:
