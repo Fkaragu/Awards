@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from .forms import *
 from .models import *
 
-def welcome (request):
+def welcome(request):
     return render(request, 'master/index.html')
 
 def upload_project(request):
@@ -12,7 +12,7 @@ def upload_project(request):
         if form.is_valid():
             add=form.save(commit=False)
             add.save()
-            return redirect('welcome')
+            return HttpResponse("Project has been uploaded successfully")
     else:
         form = UploadForm()
     return render(request,'upload_project.html',{'form':form})
@@ -28,7 +28,7 @@ def editprofile(request):
         if form.is_valid():
             add=form.save(commit=False)
             add.save()
-            return redirect('welcome')
+            return HttpResponse("Profile has been updated successfully")
     else:
         form = ProfileForm()
     return render(request,'profile/edit_profile.html',{'form':form})
