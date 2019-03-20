@@ -4,7 +4,7 @@
 {{block.super}}
 
 <div  style="">
-   <div class="col-md-8">
+   <div class="col-md-5">
       <form action="/theprojects/{{project.id}}" method="post" enctype="multipart/form-data">
   {%csrf_token%}
   {% bootstrap_form form%}

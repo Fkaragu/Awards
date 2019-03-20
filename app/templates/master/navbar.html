@@ -12,8 +12,8 @@
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         {% if user.is_authenticated %}
-        <li><a href="/upload">Upload Project</a></li>
         <li><a href="/theprojects">View Uploaded Projects</a></li>
+        <li><a href="/upload">Upload Project</a></li>
         {% else %}
         <li></li>
         {%endif%}
