@@ -1,11 +1,22 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .forms import SignupForm
+from .forms import SignupForm, UploadForm
 from .models import *
 
 
 def welcome (request):
     return render(request, 'master/index.html')
+
+def upload_project(request):
+    if request.method == 'POST':
+        form = UploadForm(request.POST, request.FILES)
+        if form.is_valid():
+            add=form.save(commit=False)
+            add.save()
+            return redirect('welcome')
+    else:
+        form = UploadForm()
+    return render(request,'upload_project.html',{'form':form})
 
 def profile(request):
     proj = Project.objects.filter(user=request.user)
