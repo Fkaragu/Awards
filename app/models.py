@@ -4,6 +4,7 @@ from tinymce.models import HTMLField
 from pyuploadcare.dj.models import ImageField
 
 class Project(models.Model):
+    user = models.OneToOneField(User)
     photo = models.ImageField(upload_to='articles/', blank=True)
     proj_title = models.CharField(max_length = 25)
     proj_link = models.CharField(max_length = 50)

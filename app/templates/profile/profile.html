@@ -16,4 +16,17 @@
     {% endfor %}
   </div>
 </div>
+<div class="row">
+  <br>
+  {% for pro in proj %}
+  <div class="col-md-4">
+    <img src="{{pro.photo.url}}" alt="image" width="300" height="300">
+  </div>
+  <div class="col-md-8">
+    <h4>{{pro.proj_title}}</h4>
+    <p>{{pro.proj_description}}</p>
+    <a href="{{pro.proj_link}}" target="_blank">View the application</a>
+  </div>
+  {% endfor %}
+</div>
 {% endblock %}
