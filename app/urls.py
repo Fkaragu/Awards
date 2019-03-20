@@ -9,6 +9,7 @@ urlpatterns = [
     url(r'^theprojects/',views.projct),
     url(r'^upload/', views.upload_project, name='upload'),
     url(r'^profile/',views.profile),
+    url(r'^editprofile/',views.editprofile, name='editprofile'),
     url(r'^registrations/',views.register),
     url(r'^user/(?P<username>\w+)', views.profile, name='profile')
 ]

@@ -1,8 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .forms import SignupForm, UploadForm
+from .forms import *
 from .models import *
-
 
 def welcome (request):
     return render(request, 'master/index.html')
@@ -22,6 +21,17 @@ def profile(request):
     proj = Project.objects.filter(user=request.user)
     prof = Profile.objects.filter(user=request.user)
     return render(request, 'profile/profile.html',{'prof':prof ,'proj':proj})
+
+def editprofile(request):
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES)
+        if form.is_valid():
+            add=form.save(commit=False)
+            add.save()
+            return redirect('welcome')
+    else:
+        form = ProfileForm()
+    return render(request,'profile/edit_profile.html',{'form':form})
 
 def projct(request):
     proj = Project.objects.all()

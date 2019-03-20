@@ -12,7 +12,11 @@ class SignupForm(UserCreationForm):
         fields = ('username', 'email', 'password1', 'password2')
 
 class UploadForm(forms.ModelForm):
-
     class Meta:
         model = Project
         fields = ('user','photo','proj_title','proj_link','proj_description')
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ('user','profile_pic','bio','projects','contact')
