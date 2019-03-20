@@ -9,8 +9,12 @@ class Project(models.Model):
     proj_title = models.CharField(max_length = 25)
     proj_link = models.CharField(max_length = 50)
     proj_description = models.CharField(max_length = 2500)
+    design=models.PositiveIntegerField(choices=list(zip(range(1,11), range(1,11))), default=1)
+    usability = models.PositiveIntegerField(choices=list(zip(range(1, 11), range(1, 11))), default=1)
+    content = models.PositiveIntegerField(choices=list(zip(range(1, 11), range(1, 11))), default=1)
+    remarks = models.CharField(max_length=50,null=True)
     post_date = models.DateTimeField(auto_now=True)
-
+    
     def __str_(self):
         return self.proj_title
 

@@ -10,6 +10,7 @@ urlpatterns = [
     url(r'^upload/', views.upload_project, name='upload'),
     url(r'^profile/',views.profile),
     url(r'^editprofile/',views.editprofile, name='editprofile'),
+    url(r'^rate/(\d+)',views.vote_project,name = 'rate'),
     url(r'^registrations/',views.register),
     url(r'^user/(?P<username>\w+)', views.profile, name='profile')
 ]

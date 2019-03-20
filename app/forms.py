@@ -20,3 +20,8 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ('user','profile_pic','bio','projects','contact')
+
+class VoteForm(forms.ModelForm):
+    class Meta:
+       model = Project
+       fields=('design','usability','content','remarks')
